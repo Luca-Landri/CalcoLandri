@@ -22,6 +22,7 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
+    # ignore: prefer_const_constructors
     # avoid_as: false  # Uncomment to disable the `avoid_as` rule
     # avoid_catches_without_on_clauses: false  # Uncomment to disable the `avoid_catches_without_on_clauses` rule
     # avoid_catching_errors: false  # Uncomment to disable the `avoid_catching_errors` rule
