@@ -26,9 +26,121 @@ class _MyAppState extends State<MyApp> {
                 fallbackWidth: 100,
               ),
               // ignore: prefer_const_constructors
-              Placeholder(
-                fallbackHeight: 550,
-                fallbackWidth: 100,
+              Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Column(
+                      // ignore: prefer_const_literals_to_create_immutables
+                      children: [
+                        // ignore: prefer_const_constructors
+                        Placeholder(
+                          fallbackHeight: 100,
+                          fallbackWidth: 100,
+                        ),
+                        // ignore: prefer_const_constructors
+                        Placeholder(
+                          fallbackHeight: 100,
+                          fallbackWidth: 100,
+                        ),
+                        Placeholder(
+                          fallbackHeight: 100,
+                          fallbackWidth: 100,
+                        ),
+                        Placeholder(
+                          fallbackHeight: 100,
+                          fallbackWidth: 100,
+                        ),
+                        Placeholder(
+                          fallbackHeight: 100,
+                          fallbackWidth: 100,
+                        ),
+                      ],
+                    ),
+                    Column(
+                      // ignore: prefer_const_literals_to_create_immutables
+                      children: [
+                        // ignore: prefer_const_constructors
+                        Placeholder(
+                          fallbackHeight: 100,
+                          fallbackWidth: 100,
+                        ),
+                        // ignore: prefer_const_constructors
+                        Placeholder(
+                          fallbackHeight: 100,
+                          fallbackWidth: 100,
+                        ),
+                        Placeholder(
+                          fallbackHeight: 100,
+                          fallbackWidth: 100,
+                        ),
+                        Placeholder(
+                          fallbackHeight: 100,
+                          fallbackWidth: 100,
+                        ),
+                        Placeholder(
+                          fallbackHeight: 100,
+                          fallbackWidth: 100,
+                        ),
+                      ],
+                    ),
+                    Column(
+                      // ignore: prefer_const_literals_to_create_immutables
+                      children: [
+                        // ignore: prefer_const_constructors
+                        Placeholder(
+                          fallbackHeight: 100,
+                          fallbackWidth: 100,
+                        ),
+                        // ignore: prefer_const_constructors
+                        Placeholder(
+                          fallbackHeight: 100,
+                          fallbackWidth: 100,
+                        ),
+                        Placeholder(
+                          fallbackHeight: 100,
+                          fallbackWidth: 100,
+                        ),
+                        Placeholder(
+                          fallbackHeight: 100,
+                          fallbackWidth: 100,
+                        ),
+                        Placeholder(
+                          fallbackHeight: 100,
+                          fallbackWidth: 100,
+                        ),
+                      ],
+                    ),
+                    Column(
+                      // ignore: prefer_const_literals_to_create_immutables
+                      children: [
+                        // ignore: prefer_const_constructors
+                        Placeholder(
+                          fallbackHeight: 100,
+                          fallbackWidth: 100,
+                        ),
+                        // ignore: prefer_const_constructors
+                        Placeholder(
+                          fallbackHeight: 100,
+                          fallbackWidth: 100,
+                        ),
+                        Placeholder(
+                          fallbackHeight: 100,
+                          fallbackWidth: 100,
+                        ),
+                        Placeholder(
+                          fallbackHeight: 100,
+                          fallbackWidth: 100,
+                        ),
+                        Placeholder(
+                          fallbackHeight: 100,
+                          fallbackWidth: 100,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
