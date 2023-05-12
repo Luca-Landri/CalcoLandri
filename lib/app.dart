@@ -15,17 +15,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Calcolandri',
       home: Scaffold(
         body: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              // ignore: prefer_const_literals_to_create_immutables
-              colors: [
-                Colors.blueGrey,
-                Colors.black,
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomCenter,
-            ),
-          ),
+          color: Colors.blueGrey,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -48,16 +38,20 @@ class _MyAppState extends State<MyApp> {
                         // ignore: prefer_const_constructors
                         Button(
                           label: "Ac",
+                          color: Color.fromARGB(167, 63, 55, 55),
                         ),
                         // ignore: prefer_const_constructors
                         Button(
                           label: "7",
+                          color: Color.fromRGBO(32, 22, 118, 1),
                         ),
                         Button(
                           label: "4",
+                          color: Colors.black,
                         ),
                         Button(
                           label: "1",
+                          color: Colors.black,
                         ),
                         Placeholder(
                           fallbackHeight: 100,
@@ -71,16 +65,20 @@ class _MyAppState extends State<MyApp> {
                         // ignore: prefer_const_constructors
                         Button(
                           label: "<-",
+                          color: Color.fromARGB(167, 63, 55, 55),
                         ),
                         // ignore: prefer_const_constructors
                         Button(
                           label: "8",
+                          color: Colors.black,
                         ),
                         Button(
                           label: "5",
+                          color: Colors.black,
                         ),
                         Button(
                           label: "2",
+                          color: Colors.black,
                         ),
                         Placeholder(
                           fallbackHeight: 100,
@@ -94,20 +92,24 @@ class _MyAppState extends State<MyApp> {
                         // ignore: prefer_const_constructors
                         Button(
                           label: "/",
+                          color: Color.fromRGBO(32, 22, 118, 1),
                         ),
                         // ignore: prefer_const_constructors
                         Button(
                           label: "9",
+                          color: Colors.black,
                         ),
                         Button(
                           label: "6",
+                          color: Colors.black,
                         ),
                         Button(
                           label: "3",
+                          color: Colors.black,
                         ),
-                        Placeholder(
-                          fallbackHeight: 100,
-                          fallbackWidth: 100,
+                        Button(
+                          label: ".",
+                          color: Colors.black,
                         ),
                       ],
                     ),
@@ -116,23 +118,21 @@ class _MyAppState extends State<MyApp> {
                       children: [
                         // ignore: prefer_const_constructors
                         Button(
-                          label: "+",
+                          label: "*",
+                          color: Color.fromRGBO(32, 22, 118, 1),
                         ),
                         // ignore: prefer_const_constructors
                         Button(
                           label: "-",
+                          color: Color.fromRGBO(32, 22, 118, 1),
                         ),
                         Placeholder(
-                          fallbackHeight: 100,
+                          fallbackHeight: 200,
                           fallbackWidth: 100,
                         ),
-                        Placeholder(
-                          fallbackHeight: 100,
-                          fallbackWidth: 100,
-                        ),
-                        Placeholder(
-                          fallbackHeight: 100,
-                          fallbackWidth: 100,
+                        Button(
+                          label: "=",
+                          color: Color.fromRGBO(32, 22, 118, 1),
                         ),
                       ],
                     ),
