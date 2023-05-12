@@ -1,3 +1,4 @@
+import 'package:calcolandri/components/Button.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatefulWidget {
@@ -14,7 +15,17 @@ class _MyAppState extends State<MyApp> {
       title: 'Calcolandri',
       home: Scaffold(
         body: Container(
-          color: Colors.black87,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              // ignore: prefer_const_literals_to_create_immutables
+              colors: [
+                Colors.blueGrey,
+                Colors.black,
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomCenter,
+            ),
+          ),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -35,22 +46,18 @@ class _MyAppState extends State<MyApp> {
                       // ignore: prefer_const_literals_to_create_immutables
                       children: [
                         // ignore: prefer_const_constructors
-                        Placeholder(
-                          fallbackHeight: 100,
-                          fallbackWidth: 100,
+                        Button(
+                          label: "Ac",
                         ),
                         // ignore: prefer_const_constructors
-                        Placeholder(
-                          fallbackHeight: 100,
-                          fallbackWidth: 100,
+                        Button(
+                          label: "7",
                         ),
-                        Placeholder(
-                          fallbackHeight: 100,
-                          fallbackWidth: 100,
+                        Button(
+                          label: "4",
                         ),
-                        Placeholder(
-                          fallbackHeight: 100,
-                          fallbackWidth: 100,
+                        Button(
+                          label: "1",
                         ),
                         Placeholder(
                           fallbackHeight: 100,
@@ -62,22 +69,18 @@ class _MyAppState extends State<MyApp> {
                       // ignore: prefer_const_literals_to_create_immutables
                       children: [
                         // ignore: prefer_const_constructors
-                        Placeholder(
-                          fallbackHeight: 100,
-                          fallbackWidth: 100,
+                        Button(
+                          label: "<-",
                         ),
                         // ignore: prefer_const_constructors
-                        Placeholder(
-                          fallbackHeight: 100,
-                          fallbackWidth: 100,
+                        Button(
+                          label: "8",
                         ),
-                        Placeholder(
-                          fallbackHeight: 100,
-                          fallbackWidth: 100,
+                        Button(
+                          label: "5",
                         ),
-                        Placeholder(
-                          fallbackHeight: 100,
-                          fallbackWidth: 100,
+                        Button(
+                          label: "2",
                         ),
                         Placeholder(
                           fallbackHeight: 100,
@@ -89,22 +92,18 @@ class _MyAppState extends State<MyApp> {
                       // ignore: prefer_const_literals_to_create_immutables
                       children: [
                         // ignore: prefer_const_constructors
-                        Placeholder(
-                          fallbackHeight: 100,
-                          fallbackWidth: 100,
+                        Button(
+                          label: "/",
                         ),
                         // ignore: prefer_const_constructors
-                        Placeholder(
-                          fallbackHeight: 100,
-                          fallbackWidth: 100,
+                        Button(
+                          label: "9",
                         ),
-                        Placeholder(
-                          fallbackHeight: 100,
-                          fallbackWidth: 100,
+                        Button(
+                          label: "6",
                         ),
-                        Placeholder(
-                          fallbackHeight: 100,
-                          fallbackWidth: 100,
+                        Button(
+                          label: "3",
                         ),
                         Placeholder(
                           fallbackHeight: 100,
@@ -116,14 +115,12 @@ class _MyAppState extends State<MyApp> {
                       // ignore: prefer_const_literals_to_create_immutables
                       children: [
                         // ignore: prefer_const_constructors
-                        Placeholder(
-                          fallbackHeight: 100,
-                          fallbackWidth: 100,
+                        Button(
+                          label: "+",
                         ),
                         // ignore: prefer_const_constructors
-                        Placeholder(
-                          fallbackHeight: 100,
-                          fallbackWidth: 100,
+                        Button(
+                          label: "-",
                         ),
                         Placeholder(
                           fallbackHeight: 100,
