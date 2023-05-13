@@ -1,4 +1,4 @@
-import 'package:calcolandri/components/Button.dart';
+import 'package:calcolandri/components/Button_List.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatefulWidget {
@@ -28,112 +28,65 @@ class _MyAppState extends State<MyApp> {
               ),
               // ignore: prefer_const_constructors
               Padding(
-                padding: const EdgeInsets.only(top: 20),
+                padding: const EdgeInsets.only(top: 80),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  // ignore: prefer_const_literals_to_create_immutables
                   children: [
-                    Column(
-                      // ignore: prefer_const_literals_to_create_immutables
-                      children: [
-                        // ignore: prefer_const_constructors
-                        Button(
-                          label: "Ac",
-                          color: Color.fromARGB(167, 63, 55, 55),
-                        ),
-                        // ignore: prefer_const_constructors
-                        Button(
-                          label: "7",
-                          color: Color.fromRGBO(32, 22, 118, 1),
-                        ),
-                        Button(
-                          label: "4",
-                          color: Colors.black,
-                        ),
-                        Button(
-                          label: "1",
-                          color: Colors.black,
-                        ),
-                        Placeholder(
-                          fallbackHeight: 100,
-                          fallbackWidth: 100,
-                        ),
+                    buttonList(
+                      colorArray: [
+                        Color.fromRGBO(58, 53, 121, 0.8),
+                        Colors.blueGrey,
+                        Colors.blueGrey,
+                        Colors.blueGrey,
+                      ],
+                      dimensionsArray: [
+                        const Size(100, 80),
+                        const Size(100, 80),
+                        const Size(100, 80),
+                        const Size(100, 80),
                       ],
                     ),
-                    Column(
-                      // ignore: prefer_const_literals_to_create_immutables
-                      children: [
-                        // ignore: prefer_const_constructors
-                        Button(
-                          label: "<-",
-                          color: Color.fromARGB(167, 63, 55, 55),
-                        ),
-                        // ignore: prefer_const_constructors
-                        Button(
-                          label: "8",
-                          color: Colors.black,
-                        ),
-                        Button(
-                          label: "5",
-                          color: Colors.black,
-                        ),
-                        Button(
-                          label: "2",
-                          color: Colors.black,
-                        ),
-                        Placeholder(
-                          fallbackHeight: 100,
-                          fallbackWidth: 100,
-                        ),
+                    buttonList(
+                      colorArray: [
+                        Colors.blueGrey,
+                        Colors.blueGrey,
+                        Colors.blueGrey,
+                        Colors.blueGrey,
+                      ],
+                      dimensionsArray: [
+                        const Size(100, 80),
+                        const Size(100, 80),
+                        const Size(100, 80),
+                        const Size(100, 80),
                       ],
                     ),
-                    Column(
-                      // ignore: prefer_const_literals_to_create_immutables
-                      children: [
-                        // ignore: prefer_const_constructors
-                        Button(
-                          label: "/",
-                          color: Color.fromRGBO(32, 22, 118, 1),
-                        ),
-                        // ignore: prefer_const_constructors
-                        Button(
-                          label: "9",
-                          color: Colors.black,
-                        ),
-                        Button(
-                          label: "6",
-                          color: Colors.black,
-                        ),
-                        Button(
-                          label: "3",
-                          color: Colors.black,
-                        ),
-                        Button(
-                          label: ".",
-                          color: Colors.black,
-                        ),
+                    buttonList(
+                      colorArray: [
+                        Colors.blueGrey,
+                        Colors.blueGrey,
+                        Colors.blueGrey,
+                        Colors.blueGrey,
+                      ],
+                      dimensionsArray: [
+                        const Size(100, 80),
+                        const Size(100, 80),
+                        const Size(100, 80),
+                        const Size(100, 80),
                       ],
                     ),
-                    Column(
-                      // ignore: prefer_const_literals_to_create_immutables
-                      children: [
-                        // ignore: prefer_const_constructors
-                        Button(
-                          label: "*",
-                          color: Color.fromRGBO(32, 22, 118, 1),
-                        ),
-                        // ignore: prefer_const_constructors
-                        Button(
-                          label: "-",
-                          color: Color.fromRGBO(32, 22, 118, 1),
-                        ),
-                        Placeholder(
-                          fallbackHeight: 200,
-                          fallbackWidth: 100,
-                        ),
-                        Button(
-                          label: "=",
-                          color: Color.fromRGBO(32, 22, 118, 1),
-                        ),
+                    buttonList(
+                      colorArray: [
+                        Colors.blueGrey,
+                        Colors.blueGrey,
+                        Colors.blueGrey,
+                        Colors.blueGrey,
+                      ],
+                      dimensionsArray: [
+                        const Size(80, 80),
+                        const Size(80, 80),
+                        const Size(80, 80),
+                        const Size(80, 80),
                       ],
                     ),
                   ],
