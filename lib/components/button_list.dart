@@ -6,7 +6,13 @@ import 'Button.dart';
 class buttonList extends StatefulWidget {
   final List<Color> colorArray;
   final List<Size> dimensionsArray;
-  const buttonList({required this.colorArray, required this.dimensionsArray});
+  // ignore: prefer_const_constructors_in_immutables
+  final List<String> labelArray;
+
+  const buttonList(
+      {required this.colorArray,
+      required this.dimensionsArray,
+      required this.labelArray});
 
   @override
   State<buttonList> createState() => _buttonListState();
@@ -16,15 +22,19 @@ class buttonList extends StatefulWidget {
 class _buttonListState extends State<buttonList> {
   late List<Color> colorArray = widget.colorArray;
   late List<Size> dimensionsArray = widget.dimensionsArray;
+  late List<String> labelArray = widget.labelArray;
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: colorArray.map((item) {
+      children: colorArray.asMap().entries.map((entry) {
+        final index = entry.key;
+        final item = entry.value;
+
         return Button(
-          label: '1',
+          label: labelArray[index],
           color: item,
-          dimensions: dimensionsArray[colorArray.indexOf(item)],
+          dimensions: dimensionsArray[index],
         );
       }).toList(),
     );
