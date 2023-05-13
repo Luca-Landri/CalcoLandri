@@ -16,6 +16,8 @@ class _MyAppState extends State<MyApp> {
     fontWeight: FontWeight.bold,
   );
 
+  String data = "";
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -30,7 +32,7 @@ class _MyAppState extends State<MyApp> {
             children: [
               // ignore: prefer_const_constructors
               SizedBox(
-                child: Text("Ciao"),
+                child: Text(data, style: style),
               ),
               // ignore: prefer_const_constructors
               Padding(
@@ -65,6 +67,26 @@ class _MyAppState extends State<MyApp> {
                         Text("1", style: style),
                         Text("Sin", style: style),
                       ],
+
+                      // ignore: prefer_const_literals_to_create_immutables
+                      onPressedArray: [
+                        () {
+                          print("AC");
+                        },
+                        () {
+                          data += '7';
+                          print(data);
+                        },
+                        () {
+                          print("4");
+                        },
+                        () {
+                          print("1");
+                        },
+                        () {
+                          print("Sin");
+                        },
+                      ],
                     ),
                     // ignore: prefer_const_constructors
                     ButtonList(
@@ -93,6 +115,25 @@ class _MyAppState extends State<MyApp> {
                         Text("2", style: style),
                         Text("0", style: style),
                       ],
+
+                      // ignore: prefer_const_literals_to_create_immutables
+                      onPressedArray: [
+                        () {
+                          print("backspace");
+                        },
+                        () {
+                          print("8");
+                        },
+                        () {
+                          print("5");
+                        },
+                        () {
+                          print("2");
+                        },
+                        () {
+                          print("0");
+                        },
+                      ],
                     ),
                     ButtonList(
                       // ignore: prefer_const_literals_to_create_immutables
@@ -120,6 +161,25 @@ class _MyAppState extends State<MyApp> {
                         Text("3", style: style),
                         Text(".", style: style),
                       ],
+
+                      // ignore: prefer_const_literals_to_create_immutables
+                      onPressedArray: [
+                        () {
+                          print("/");
+                        },
+                        () {
+                          print("9");
+                        },
+                        () {
+                          print("6");
+                        },
+                        () {
+                          print("3");
+                        },
+                        () {
+                          print(".");
+                        },
+                      ],
                     ),
                     ButtonList(
                       // ignore: prefer_const_literals_to_create_immutables
@@ -143,6 +203,22 @@ class _MyAppState extends State<MyApp> {
                         Text("-", style: style),
                         Text("+", style: style),
                         Text("=", style: style),
+                      ],
+
+                      // ignore: prefer_const_literals_to_create_immutables
+                      onPressedArray: [
+                        () {
+                          print("*");
+                        },
+                        () {
+                          print("-");
+                        },
+                        () {
+                          print("+");
+                        },
+                        () {
+                          print("=");
+                        },
                       ],
                     ),
                   ],
