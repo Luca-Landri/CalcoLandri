@@ -1,28 +1,27 @@
+// ignore_for_file: library_private_types_in_public_api
+
+import 'package:calcolandri/components/button.dart';
 import 'package:flutter/material.dart';
 
-import 'Button.dart';
-
-// ignore: camel_case_types
-class buttonList extends StatefulWidget {
+class ButtonList extends StatefulWidget {
   final List<Color> colorArray;
   final List<Size> dimensionsArray;
-  // ignore: prefer_const_constructors_in_immutables
-  final List<String> labelArray;
+  final List<dynamic> labelArray;
 
-  const buttonList(
-      {required this.colorArray,
-      required this.dimensionsArray,
-      required this.labelArray});
+  const ButtonList({
+    required this.colorArray,
+    required this.dimensionsArray,
+    required this.labelArray,
+  });
 
   @override
-  State<buttonList> createState() => _buttonListState();
+  _ButtonListState createState() => _ButtonListState();
 }
 
-// ignore: camel_case_types
-class _buttonListState extends State<buttonList> {
+class _ButtonListState extends State<ButtonList> {
   late List<Color> colorArray = widget.colorArray;
   late List<Size> dimensionsArray = widget.dimensionsArray;
-  late List<String> labelArray = widget.labelArray;
+  late List<dynamic> labelArray = widget.labelArray;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +34,10 @@ class _buttonListState extends State<buttonList> {
           label: labelArray[index],
           color: item,
           dimensions: dimensionsArray[index],
+          onPressed: () {
+            // ignore: avoid_print
+            print("Button $index pressed");
+          },
         );
       }).toList(),
     );
