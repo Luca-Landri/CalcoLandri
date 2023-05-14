@@ -15,6 +15,7 @@ class _MyAppState extends State<MyApp> {
     fontSize: 30,
     fontWeight: FontWeight.bold,
   );
+  TextEditingController dataController = TextEditingController();
 
   String data = "";
 
@@ -32,7 +33,14 @@ class _MyAppState extends State<MyApp> {
             children: [
               // ignore: prefer_const_constructors
               SizedBox(
-                child: Text(data, style: style),
+                child: TextField(
+                  controller: dataController,
+                  style: style,
+                  enabled: false,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                  ),
+                ),
               ),
               // ignore: prefer_const_constructors
               Padding(
@@ -71,11 +79,16 @@ class _MyAppState extends State<MyApp> {
                       // ignore: prefer_const_literals_to_create_immutables
                       onPressedArray: [
                         () {
-                          print("AC");
+                          setState(() {
+                            data = "";
+                            dataController.text = data;
+                          });
                         },
                         () {
-                          data += '7';
-                          print(data);
+                          setState(() {
+                            data += '7';
+                            dataController.text = data;
+                          });
                         },
                         () {
                           print("4");
