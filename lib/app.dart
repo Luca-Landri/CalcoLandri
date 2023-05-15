@@ -15,11 +15,19 @@ class _MyAppState extends State<MyApp> {
     fontSize: 30,
     fontWeight: FontWeight.bold,
   );
-  TextEditingController dataController = TextEditingController();
 
-  String data1 = "";
-  String data2 = "";
-  bool operation = false;
+  int calculate(List<String> data) {
+    int sum = 0;
+    for (var items in data) {
+      sum += int.parse(items);
+    }
+    return sum;
+  }
+
+  TextEditingController dataController = TextEditingController();
+  List<String> data = ["", ""];
+  double result = 0;
+  int operation = 0;
 
   String removeLastCharacter(String text) {
     if (text.isNotEmpty) {
@@ -89,31 +97,30 @@ class _MyAppState extends State<MyApp> {
                       onPressedArray: [
                         () {
                           setState(() {
-                            data1 = "";
-                            dataController.text = data1;
+                            data.clear();
                           });
                         },
                         () {
                           setState(() {
-                            data1 += '7';
-                            dataController.text = data1;
+                            data[operation] += '7';
+                            dataController.text = data[operation];
                           });
                         },
                         () {
                           setState(() {
-                            data1 += '4';
-                            dataController.text = data1;
+                            data[operation] += '4';
+                            dataController.text = data[operation];
                           });
                         },
                         () {
                           setState(() {
-                            data1 += '1';
-                            dataController.text = data1;
+                            data[operation] += '1';
+                            dataController.text = data[operation];
                           });
                         },
                         () {
                           setState(() {
-                            operation = true;
+                            operation++;
                           });
                         },
                       ],
@@ -150,32 +157,33 @@ class _MyAppState extends State<MyApp> {
                       onPressedArray: [
                         () {
                           setState(() {
-                            data1 = removeLastCharacter(data1);
-                            dataController.text = data1;
+                            data[operation] =
+                                removeLastCharacter(data[operation]);
+                            dataController.text = data[operation];
                           });
                         },
                         () {
                           setState(() {
-                            data1 += '8';
-                            dataController.text = data1;
+                            data[operation] += '8';
+                            dataController.text = data[operation];
                           });
                         },
                         () {
                           setState(() {
-                            data1 += '5';
-                            dataController.text = data1;
+                            data[operation] += '5';
+                            dataController.text = data[operation];
                           });
                         },
                         () {
                           setState(() {
-                            data1 += '2';
-                            dataController.text = data1;
+                            data[operation] += '2';
+                            dataController.text = data[operation];
                           });
                         },
                         () {
                           setState(() {
-                            data1 += '0';
-                            dataController.text = data1;
+                            data[operation] += '0';
+                            dataController.text = data[operation];
                           });
                         },
                       ],
@@ -211,32 +219,32 @@ class _MyAppState extends State<MyApp> {
                       onPressedArray: [
                         () {
                           setState(() {
-                            operation = true;
-                            dataController.text = data2;
+                            operation++;
+                            dataController.text = data[operation];
                           });
                         },
                         () {
                           setState(() {
-                            data1 += '9';
-                            dataController.text = data1;
+                            data[operation] += '9';
+                            dataController.text = data[operation];
                           });
                         },
                         () {
                           setState(() {
-                            data1 += '6';
-                            dataController.text = data1;
+                            data[operation] += '6';
+                            dataController.text = data[operation];
                           });
                         },
                         () {
                           setState(() {
-                            data1 += '3';
-                            dataController.text = data1;
+                            data[operation] += '3';
+                            dataController.text = data[operation];
                           });
                         },
                         () {
                           setState(() {
-                            data1 += '.';
-                            dataController.text = data1;
+                            data[operation] += '.';
+                            dataController.text = data[operation];
                           });
                         },
                       ],
@@ -269,26 +277,25 @@ class _MyAppState extends State<MyApp> {
                       onPressedArray: [
                         () {
                           setState(() {
-                            operation = true;
-                            dataController.text = data2;
+                            operation++;
+                            dataController.text = data[operation];
                           });
                         },
                         () {
                           setState(() {
-                            operation = true;
-                            dataController.text = data2;
+                            operation++;
+                            dataController.text = data[operation];
                           });
                         },
                         () {
                           setState(() {
-                            operation = true;
-                            dataController.text = data2;
+                            operation++;
+                            dataController.text = data[operation];
                           });
                         },
                         () {
                           setState(() {
-                            operation = true;
-                            dataController.text = data2;
+                            dataController.text = calculate(data).toString();
                           });
                         },
                       ],
