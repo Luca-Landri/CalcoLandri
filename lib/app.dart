@@ -38,6 +38,9 @@ class _MyAppState extends State<MyApp> {
     if (operationText == "/") {
       result = int.parse(data[0]) ~/ int.parse(data[1]);
     }
+    dataController.text = "";
+    data = ["", ""];
+    print(dataController.text);
     return result;
   }
 
@@ -339,6 +342,8 @@ class _MyAppState extends State<MyApp> {
                                 });
                               }
                             }
+                            dataController.text = "";
+                            data = ["", ""];
                           },
                         ],
                       ),
