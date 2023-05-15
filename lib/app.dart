@@ -26,13 +26,28 @@ class _MyAppState extends State<MyApp> {
     decoration: TextDecoration.none,
   );
 
-  int calculate(List<String> data) {
-    int sum = 0;
-    for (var items in data) {
-      sum += int.parse(items);
+  int calculate(List<String> data, String operationText) {
+    int result = 0;
+    if (operationText == "+") {
+      result = int.parse(data[0]) + int.parse(data[1]);
+    } else if (operationText == "-") {
+      result = int.parse(data[0]) - int.parse(data[1]);
+    } else if (operationText == "*") {
+      result = int.parse(data[0]) * int.parse(data[1]);
     }
-    return sum;
+    if (operationText == "/") {
+      result = int.parse(data[0]) ~/ int.parse(data[1]);
+    }
+    return result;
   }
+
+  List<Size> dimensionsArray = [
+    Size(80, 70),
+    Size(80, 70),
+    Size(80, 70),
+    Size(80, 70),
+    Size(80, 70),
+  ];
 
   TextEditingController dataController = TextEditingController();
   TextEditingController resultController = TextEditingController();
@@ -46,6 +61,18 @@ class _MyAppState extends State<MyApp> {
       return text.substring(0, text.length - 1);
     }
     return text;
+  }
+
+  void addNumber(number) {
+    setState(() {
+      data[operation] += number;
+      if (operation == 1) {
+        dataController.text =
+            data[operation - 1] + operationText + data[operation];
+      } else {
+        dataController.text = data[operation];
+      }
+    });
   }
 
   @override
@@ -110,13 +137,7 @@ class _MyAppState extends State<MyApp> {
                           Color(0xFF306474),
                         ],
                         // ignore: prefer_const_literals_to_create_immutables
-                        dimensionsArray: [
-                          Size(80, 70),
-                          Size(80, 70),
-                          Size(80, 70),
-                          Size(80, 70),
-                          Size(80, 70),
-                        ],
+                        dimensionsArray: dimensionsArray,
 
                         // ignore: prefer_const_literals_to_create_immutables
                         labelArray: [
@@ -138,40 +159,13 @@ class _MyAppState extends State<MyApp> {
                             });
                           },
                           () {
-                            setState(() {
-                              data[operation] += '7';
-                              if (operation == 1) {
-                                dataController.text = data[operation - 1] +
-                                    operationText +
-                                    data[operation];
-                              } else {
-                                dataController.text = data[operation];
-                              }
-                            });
+                            addNumber("7");
                           },
                           () {
-                            setState(() {
-                              data[operation] += '4';
-                              if (operation == 1) {
-                                dataController.text = data[operation - 1] +
-                                    operationText +
-                                    data[operation];
-                              } else {
-                                dataController.text = data[operation];
-                              }
-                            });
+                            addNumber("4");
                           },
                           () {
-                            setState(() {
-                              data[operation] += '1';
-                              if (operation == 1) {
-                                dataController.text = data[operation - 1] +
-                                    operationText +
-                                    data[operation];
-                              } else {
-                                dataController.text = data[operation];
-                              }
-                            });
+                            addNumber("1");
                           },
                           () {
                             setState(() {
@@ -191,13 +185,7 @@ class _MyAppState extends State<MyApp> {
                           Color(0xFF306474),
                         ],
                         // ignore: prefer_const_literals_to_create_immutables
-                        dimensionsArray: [
-                          Size(80, 70),
-                          Size(80, 70),
-                          Size(80, 70),
-                          Size(80, 70),
-                          Size(80, 70),
-                        ],
+                        dimensionsArray: dimensionsArray,
 
                         // ignore: prefer_const_literals_to_create_immutables
                         labelArray: [
@@ -225,52 +213,16 @@ class _MyAppState extends State<MyApp> {
                             });
                           },
                           () {
-                            setState(() {
-                              data[operation] += '8';
-                              if (operation == 1) {
-                                dataController.text = data[operation - 1] +
-                                    operationText +
-                                    data[operation];
-                              } else {
-                                dataController.text = data[operation];
-                              }
-                            });
+                            addNumber("8");
                           },
                           () {
-                            setState(() {
-                              data[operation] += '5';
-                              if (operation == 1) {
-                                dataController.text = data[operation - 1] +
-                                    operationText +
-                                    data[operation];
-                              } else {
-                                dataController.text = data[operation];
-                              }
-                            });
+                            addNumber("5");
                           },
                           () {
-                            setState(() {
-                              data[operation] += '2';
-                              if (operation == 1) {
-                                dataController.text = data[operation - 1] +
-                                    operationText +
-                                    data[operation];
-                              } else {
-                                dataController.text = data[operation];
-                              }
-                            });
+                            addNumber("2");
                           },
                           () {
-                            setState(() {
-                              data[operation] += '0';
-                              if (operation == 1) {
-                                dataController.text = data[operation - 1] +
-                                    operationText +
-                                    data[operation];
-                              } else {
-                                dataController.text = data[operation];
-                              }
-                            });
+                            addNumber("0");
                           },
                         ],
                       ),
@@ -284,13 +236,7 @@ class _MyAppState extends State<MyApp> {
                           Color(0xFF306474),
                         ],
                         // ignore: prefer_const_literals_to_create_immutables
-                        dimensionsArray: [
-                          Size(80, 70),
-                          Size(80, 70),
-                          Size(80, 70),
-                          Size(80, 70),
-                          Size(80, 70),
-                        ],
+                        dimensionsArray: dimensionsArray,
 
                         // ignore: prefer_const_literals_to_create_immutables
                         labelArray: [
@@ -310,52 +256,16 @@ class _MyAppState extends State<MyApp> {
                             });
                           },
                           () {
-                            setState(() {
-                              data[operation] += '9';
-                              if (operation == 1) {
-                                dataController.text = data[operation - 1] +
-                                    operationText +
-                                    data[operation];
-                              } else {
-                                dataController.text = data[operation];
-                              }
-                            });
+                            addNumber("9");
                           },
                           () {
-                            setState(() {
-                              data[operation] += '6';
-                              if (operation == 1) {
-                                dataController.text = data[operation - 1] +
-                                    operationText +
-                                    data[operation];
-                              } else {
-                                dataController.text = data[operation];
-                              }
-                            });
+                            addNumber("6");
                           },
                           () {
-                            setState(() {
-                              data[operation] += '3';
-                              if (operation == 1) {
-                                dataController.text = data[operation - 1] +
-                                    operationText +
-                                    data[operation];
-                              } else {
-                                dataController.text = data[operation];
-                              }
-                            });
+                            addNumber("3");
                           },
                           () {
-                            setState(() {
-                              data[operation] += '.';
-                              if (operation == 1) {
-                                dataController.text = data[operation - 1] +
-                                    operationText +
-                                    data[operation];
-                              } else {
-                                dataController.text = data[operation];
-                              }
-                            });
+                            addNumber(".");
                           },
                         ],
                       ),
@@ -388,30 +298,29 @@ class _MyAppState extends State<MyApp> {
                           () {
                             setState(() {
                               operation++;
-                              dataController.text = data[operation];
+                              dataController.text += "*";
+                              operationText = "*";
                             });
                           },
                           () {
                             setState(() {
                               operation++;
-                              dataController.text = data[operation];
+                              dataController.text += "-";
+                              operationText = "-";
                             });
                           },
                           () {
-                            for (var i in data) {
-                              if (i == "") {
-                                setState(() {
-                                  resultController.text = "Error";
-                                  operation = 0;
-                                });
-                                break;
-                              } else {
-                                setState(() {
-                                  operation++;
-                                  dataController.text += "+";
-                                  operationText = "+";
-                                });
-                              }
+                            if (data[0] == "") {
+                              setState(() {
+                                resultController.text = "Error";
+                                operation = 0;
+                              });
+                            } else {
+                              setState(() {
+                                operation++;
+                                dataController.text += "+";
+                                operationText = "+";
+                              });
                             }
                           },
                           () {
@@ -425,7 +334,7 @@ class _MyAppState extends State<MyApp> {
                               } else {
                                 setState(() {
                                   resultController.text =
-                                      calculate(data).toString();
+                                      calculate(data, operationText).toString();
                                   operation = 0;
                                 });
                               }
