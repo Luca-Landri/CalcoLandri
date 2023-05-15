@@ -26,7 +26,7 @@ class _ButtonState extends State<Button> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(3.5),
+      padding: EdgeInsets.all(5.5),
       child: ElevatedButton(
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all<Color>(color),
@@ -34,7 +34,7 @@ class _ButtonState extends State<Button> {
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
                 borderRadius:
-                    BorderRadius.circular(10.0), // Border radius of 10.0
+                    BorderRadius.circular(15.0), // Border radius of 10.0
               ),
             ),
           ),
