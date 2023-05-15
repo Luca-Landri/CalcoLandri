@@ -405,11 +405,16 @@ class _MyAppState extends State<MyApp> {
                             });
                           },
                           () {
-                            setState(() {
-                              resultController.text =
-                                  calculate(data).toString();
-                              operation = 0;
-                            });
+                            for (var i in data) {
+                              if (i == "") {
+                              } else {
+                                setState(() {
+                                  resultController.text =
+                                      calculate(data).toString();
+                                  operation = 0;
+                                });
+                              }
+                            }
                           },
                         ],
                       ),
