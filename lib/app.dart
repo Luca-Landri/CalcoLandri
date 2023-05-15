@@ -1,3 +1,5 @@
+// ignore_for_file: sort_child_properties_last
+
 import 'package:calcolandri/components/button_list.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +16,14 @@ class _MyAppState extends State<MyApp> {
     color: Colors.white,
     fontSize: 30,
     fontWeight: FontWeight.bold,
+  );
+
+  final TextStyle style2 = TextStyle(
+    color: Colors.white,
+    fontSize: 40,
+    fontWeight: FontWeight.bold,
+    textBaseline: TextBaseline.alphabetic,
+    decoration: TextDecoration.none,
   );
 
   int calculate(List<String> data) {
@@ -52,12 +62,20 @@ class _MyAppState extends State<MyApp> {
               SizedBox(
                 child: TextField(
                   controller: dataController,
-                  style: style,
+                  style: style2,
                   enabled: false,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
+                    labelText: 'Result',
+                    labelStyle: style,
+                    alignLabelWithHint: true,
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                    floatingLabelBehavior: FloatingLabelBehavior.never,
                   ),
                 ),
+                width: 400,
+                height: 100,
               ),
               // ignore: prefer_const_constructors
               Padding(
@@ -98,6 +116,8 @@ class _MyAppState extends State<MyApp> {
                         () {
                           setState(() {
                             data.clear();
+                            data = ["", ""];
+                            dataController.text = "";
                           });
                         },
                         () {
@@ -296,6 +316,7 @@ class _MyAppState extends State<MyApp> {
                         () {
                           setState(() {
                             dataController.text = calculate(data).toString();
+                            operation = 0;
                           });
                         },
                       ],
