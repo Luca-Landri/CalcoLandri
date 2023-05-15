@@ -19,6 +19,13 @@ class _MyAppState extends State<MyApp> {
 
   String data = "";
 
+  String removeLastCharacter(String text) {
+    if (text.isNotEmpty) {
+      return text.substring(0, text.length - 1);
+    }
+    return text;
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -91,10 +98,16 @@ class _MyAppState extends State<MyApp> {
                           });
                         },
                         () {
-                          print("4");
+                          setState(() {
+                            data += '4';
+                            dataController.text = data;
+                          });
                         },
                         () {
-                          print("1");
+                          setState(() {
+                            data += '1';
+                            dataController.text = data;
+                          });
                         },
                         () {
                           print("Sin");
@@ -132,19 +145,34 @@ class _MyAppState extends State<MyApp> {
                       // ignore: prefer_const_literals_to_create_immutables
                       onPressedArray: [
                         () {
-                          print("backspace");
+                          setState(() {
+                            data = removeLastCharacter(data);
+                            dataController.text = data;
+                          });
                         },
                         () {
-                          print("8");
+                          setState(() {
+                            data += '8';
+                            dataController.text = data;
+                          });
                         },
                         () {
-                          print("5");
+                          setState(() {
+                            data += '5';
+                            dataController.text = data;
+                          });
                         },
                         () {
-                          print("2");
+                          setState(() {
+                            data += '2';
+                            dataController.text = data;
+                          });
                         },
                         () {
-                          print("0");
+                          setState(() {
+                            data += '0';
+                            dataController.text = data;
+                          });
                         },
                       ],
                     ),
@@ -181,16 +209,28 @@ class _MyAppState extends State<MyApp> {
                           print("/");
                         },
                         () {
-                          print("9");
+                          setState(() {
+                            data += '9';
+                            dataController.text = data;
+                          });
                         },
                         () {
-                          print("6");
+                          setState(() {
+                            data += '6';
+                            dataController.text = data;
+                          });
                         },
                         () {
-                          print("3");
+                          setState(() {
+                            data += '3';
+                            dataController.text = data;
+                          });
                         },
                         () {
-                          print(".");
+                          setState(() {
+                            data += '.';
+                            dataController.text = data;
+                          });
                         },
                       ],
                     ),
