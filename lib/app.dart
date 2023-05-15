@@ -398,15 +398,30 @@ class _MyAppState extends State<MyApp> {
                             });
                           },
                           () {
-                            setState(() {
-                              operation++;
-                              dataController.text += "+";
-                              operationText = "+";
-                            });
+                            for (var i in data) {
+                              if (i == "") {
+                                setState(() {
+                                  resultController.text = "Error";
+                                  operation = 0;
+                                });
+                                break;
+                              } else {
+                                setState(() {
+                                  operation++;
+                                  dataController.text += "+";
+                                  operationText = "+";
+                                });
+                              }
+                            }
                           },
                           () {
                             for (var i in data) {
                               if (i == "") {
+                                setState(() {
+                                  resultController.text = "Error";
+                                  operation = 0;
+                                });
+                                break;
                               } else {
                                 setState(() {
                                   resultController.text =
