@@ -17,7 +17,9 @@ class _MyAppState extends State<MyApp> {
   );
   TextEditingController dataController = TextEditingController();
 
-  String data = "";
+  String data1 = "";
+  String data2 = "";
+  bool operation = false;
 
   String removeLastCharacter(String text) {
     if (text.isNotEmpty) {
@@ -87,30 +89,32 @@ class _MyAppState extends State<MyApp> {
                       onPressedArray: [
                         () {
                           setState(() {
-                            data = "";
-                            dataController.text = data;
+                            data1 = "";
+                            dataController.text = data1;
                           });
                         },
                         () {
                           setState(() {
-                            data += '7';
-                            dataController.text = data;
+                            data1 += '7';
+                            dataController.text = data1;
                           });
                         },
                         () {
                           setState(() {
-                            data += '4';
-                            dataController.text = data;
+                            data1 += '4';
+                            dataController.text = data1;
                           });
                         },
                         () {
                           setState(() {
-                            data += '1';
-                            dataController.text = data;
+                            data1 += '1';
+                            dataController.text = data1;
                           });
                         },
                         () {
-                          print("Sin");
+                          setState(() {
+                            operation = true;
+                          });
                         },
                       ],
                     ),
@@ -146,32 +150,32 @@ class _MyAppState extends State<MyApp> {
                       onPressedArray: [
                         () {
                           setState(() {
-                            data = removeLastCharacter(data);
-                            dataController.text = data;
+                            data1 = removeLastCharacter(data1);
+                            dataController.text = data1;
                           });
                         },
                         () {
                           setState(() {
-                            data += '8';
-                            dataController.text = data;
+                            data1 += '8';
+                            dataController.text = data1;
                           });
                         },
                         () {
                           setState(() {
-                            data += '5';
-                            dataController.text = data;
+                            data1 += '5';
+                            dataController.text = data1;
                           });
                         },
                         () {
                           setState(() {
-                            data += '2';
-                            dataController.text = data;
+                            data1 += '2';
+                            dataController.text = data1;
                           });
                         },
                         () {
                           setState(() {
-                            data += '0';
-                            dataController.text = data;
+                            data1 += '0';
+                            dataController.text = data1;
                           });
                         },
                       ],
@@ -206,30 +210,33 @@ class _MyAppState extends State<MyApp> {
                       // ignore: prefer_const_literals_to_create_immutables
                       onPressedArray: [
                         () {
-                          print("/");
-                        },
-                        () {
                           setState(() {
-                            data += '9';
-                            dataController.text = data;
+                            operation = true;
+                            dataController.text = data2;
                           });
                         },
                         () {
                           setState(() {
-                            data += '6';
-                            dataController.text = data;
+                            data1 += '9';
+                            dataController.text = data1;
                           });
                         },
                         () {
                           setState(() {
-                            data += '3';
-                            dataController.text = data;
+                            data1 += '6';
+                            dataController.text = data1;
                           });
                         },
                         () {
                           setState(() {
-                            data += '.';
-                            dataController.text = data;
+                            data1 += '3';
+                            dataController.text = data1;
+                          });
+                        },
+                        () {
+                          setState(() {
+                            data1 += '.';
+                            dataController.text = data1;
                           });
                         },
                       ],
@@ -261,16 +268,28 @@ class _MyAppState extends State<MyApp> {
                       // ignore: prefer_const_literals_to_create_immutables
                       onPressedArray: [
                         () {
-                          print("*");
+                          setState(() {
+                            operation = true;
+                            dataController.text = data2;
+                          });
                         },
                         () {
-                          print("-");
+                          setState(() {
+                            operation = true;
+                            dataController.text = data2;
+                          });
                         },
                         () {
-                          print("+");
+                          setState(() {
+                            operation = true;
+                            dataController.text = data2;
+                          });
                         },
                         () {
-                          print("=");
+                          setState(() {
+                            operation = true;
+                            dataController.text = data2;
+                          });
                         },
                       ],
                     ),
