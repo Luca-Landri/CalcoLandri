@@ -19,7 +19,7 @@ class _MyAppState extends State<MyApp> {
   );
 
   final TextStyle style2 = TextStyle(
-    color: Colors.white,
+    color: Color(0xFF306474),
     fontSize: 40,
     fontWeight: FontWeight.bold,
     textBaseline: TextBaseline.alphabetic,
@@ -35,9 +35,11 @@ class _MyAppState extends State<MyApp> {
   }
 
   TextEditingController dataController = TextEditingController();
+  TextEditingController resultController = TextEditingController();
   List<String> data = ["", ""];
   double result = 0;
   int operation = 0;
+  String operationText = "";
 
   String removeLastCharacter(String text) {
     if (text.isNotEmpty) {
@@ -55,7 +57,7 @@ class _MyAppState extends State<MyApp> {
         body: Container(
           color: Color(0xFFfbf5d4),
           child: Padding(
-            padding: EdgeInsets.only(top: 90.0),
+            padding: EdgeInsets.only(top: 50.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -63,26 +65,37 @@ class _MyAppState extends State<MyApp> {
               children: [
                 // ignore: prefer_const_constructors
                 SizedBox(
-                  child: TextField(
-                    controller: dataController,
-                    style: style2,
-                    enabled: false,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Result',
-                      labelStyle: style,
-                      alignLabelWithHint: true,
-                      contentPadding:
-                          EdgeInsets.symmetric(vertical: 12, horizontal: 10),
-                      floatingLabelBehavior: FloatingLabelBehavior.never,
-                    ),
+                  child: Column(
+                    children: [
+                      TextField(
+                        controller: dataController,
+                        style: style2,
+                        enabled: false,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          labelStyle: style2,
+                          alignLabelWithHint: true,
+                        ),
+                      ),
+                      TextField(
+                        controller: resultController,
+                        style: style2,
+                        enabled: false,
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          labelText: 'Result',
+                          labelStyle: style2,
+                          alignLabelWithHint: true,
+                        ),
+                      ),
+                    ],
                   ),
                   width: 350,
-                  height: 100,
+                  height: 200,
                 ),
                 // ignore: prefer_const_constructors
                 Padding(
-                  padding: EdgeInsets.only(top: 100),
+                  padding: EdgeInsets.only(top: 120),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     // ignore: prefer_const_literals_to_create_immutables
@@ -121,24 +134,43 @@ class _MyAppState extends State<MyApp> {
                               data.clear();
                               data = ["", ""];
                               dataController.text = "";
+                              operation = 0;
                             });
                           },
                           () {
                             setState(() {
                               data[operation] += '7';
-                              dataController.text = data[operation];
+                              if (operation == 1) {
+                                dataController.text = data[operation - 1] +
+                                    operationText +
+                                    data[operation];
+                              } else {
+                                dataController.text = data[operation];
+                              }
                             });
                           },
                           () {
                             setState(() {
                               data[operation] += '4';
-                              dataController.text = data[operation];
+                              if (operation == 1) {
+                                dataController.text = data[operation - 1] +
+                                    operationText +
+                                    data[operation];
+                              } else {
+                                dataController.text = data[operation];
+                              }
                             });
                           },
                           () {
                             setState(() {
                               data[operation] += '1';
-                              dataController.text = data[operation];
+                              if (operation == 1) {
+                                dataController.text = data[operation - 1] +
+                                    operationText +
+                                    data[operation];
+                              } else {
+                                dataController.text = data[operation];
+                              }
                             });
                           },
                           () {
@@ -182,31 +214,62 @@ class _MyAppState extends State<MyApp> {
                             setState(() {
                               data[operation] =
                                   removeLastCharacter(data[operation]);
-                              dataController.text = data[operation];
+                              if (operation == 1) {
+                                dataController.text = data[operation - 1] +
+                                    operationText +
+                                    data[operation];
+                              } else if (operation == 0 ||
+                                  data[operation] == "") {
+                                dataController.text = data[operation];
+                              }
                             });
                           },
                           () {
                             setState(() {
                               data[operation] += '8';
-                              dataController.text = data[operation];
+                              if (operation == 1) {
+                                dataController.text = data[operation - 1] +
+                                    operationText +
+                                    data[operation];
+                              } else {
+                                dataController.text = data[operation];
+                              }
                             });
                           },
                           () {
                             setState(() {
                               data[operation] += '5';
-                              dataController.text = data[operation];
+                              if (operation == 1) {
+                                dataController.text = data[operation - 1] +
+                                    operationText +
+                                    data[operation];
+                              } else {
+                                dataController.text = data[operation];
+                              }
                             });
                           },
                           () {
                             setState(() {
                               data[operation] += '2';
-                              dataController.text = data[operation];
+                              if (operation == 1) {
+                                dataController.text = data[operation - 1] +
+                                    operationText +
+                                    data[operation];
+                              } else {
+                                dataController.text = data[operation];
+                              }
                             });
                           },
                           () {
                             setState(() {
                               data[operation] += '0';
-                              dataController.text = data[operation];
+                              if (operation == 1) {
+                                dataController.text = data[operation - 1] +
+                                    operationText +
+                                    data[operation];
+                              } else {
+                                dataController.text = data[operation];
+                              }
                             });
                           },
                         ],
@@ -249,25 +312,49 @@ class _MyAppState extends State<MyApp> {
                           () {
                             setState(() {
                               data[operation] += '9';
-                              dataController.text = data[operation];
+                              if (operation == 1) {
+                                dataController.text = data[operation - 1] +
+                                    operationText +
+                                    data[operation];
+                              } else {
+                                dataController.text = data[operation];
+                              }
                             });
                           },
                           () {
                             setState(() {
                               data[operation] += '6';
-                              dataController.text = data[operation];
+                              if (operation == 1) {
+                                dataController.text = data[operation - 1] +
+                                    operationText +
+                                    data[operation];
+                              } else {
+                                dataController.text = data[operation];
+                              }
                             });
                           },
                           () {
                             setState(() {
                               data[operation] += '3';
-                              dataController.text = data[operation];
+                              if (operation == 1) {
+                                dataController.text = data[operation - 1] +
+                                    operationText +
+                                    data[operation];
+                              } else {
+                                dataController.text = data[operation];
+                              }
                             });
                           },
                           () {
                             setState(() {
                               data[operation] += '.';
-                              dataController.text = data[operation];
+                              if (operation == 1) {
+                                dataController.text = data[operation - 1] +
+                                    operationText +
+                                    data[operation];
+                              } else {
+                                dataController.text = data[operation];
+                              }
                             });
                           },
                         ],
@@ -313,12 +400,14 @@ class _MyAppState extends State<MyApp> {
                           () {
                             setState(() {
                               operation++;
-                              dataController.text = data[operation];
+                              dataController.text += "+";
+                              operationText = "+";
                             });
                           },
                           () {
                             setState(() {
-                              dataController.text = calculate(data).toString();
+                              resultController.text =
+                                  calculate(data).toString();
                               operation = 0;
                             });
                           },
