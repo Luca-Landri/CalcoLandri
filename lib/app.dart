@@ -1,6 +1,7 @@
 // ignore_for_file: sort_child_properties_last
 
 import 'package:calcolandri/components/button_list.dart';
+import 'package:calcolandri/pages/creator_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -152,7 +153,24 @@ class _MyAppState extends State<MyApp> {
                           Text("7", style: style),
                           Text("4", style: style),
                           Text("1", style: style),
-                          Text("Sin", style: style),
+                          Builder(
+                            builder: (context) => InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => CreatorPage()),
+                                );
+                              },
+                              child: Text(
+                                '🥰',
+                                style: TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          )
                         ],
 
                         // ignore: prefer_const_literals_to_create_immutables
