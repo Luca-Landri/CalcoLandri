@@ -2,6 +2,7 @@
 
 import 'package:calcolandri/components/button_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -28,19 +29,18 @@ class _MyAppState extends State<MyApp> {
 
   int calculate(List<String> data, String operationText) {
     int result = 0;
-    if (operationText == "+") {
-      result = int.parse(data[0]) + int.parse(data[1]);
-    } else if (operationText == "-") {
-      result = int.parse(data[0]) - int.parse(data[1]);
-    } else if (operationText == "*") {
-      result = int.parse(data[0]) * int.parse(data[1]);
+    if (data[1] != "") {
+      if (operationText == "+") {
+        result = int.parse(data[0]) + int.parse(data[1]);
+      } else if (operationText == "-") {
+        result = int.parse(data[0]) - int.parse(data[1]);
+      } else if (operationText == "*") {
+        result = int.parse(data[0]) * int.parse(data[1]);
+      }
+      if (operationText == "/") {
+        result = int.parse(data[0]) ~/ int.parse(data[1]);
+      }
     }
-    if (operationText == "/") {
-      result = int.parse(data[0]) ~/ int.parse(data[1]);
-    }
-    dataController.text = "";
-    data = ["", ""];
-    print(dataController.text);
     return result;
   }
 
@@ -80,8 +80,12 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
+      statusBarColor: Colors
+          .transparent, // Imposta il colore della barra di stato come trasparente
+    ));
+
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Calcolandri',
       home: Scaffold(
         body: Container(
@@ -299,18 +303,63 @@ class _MyAppState extends State<MyApp> {
                         // ignore: prefer_const_literals_to_create_immutables
                         onPressedArray: [
                           () {
-                            setState(() {
-                              operation++;
-                              dataController.text += "*";
-                              operationText = "*";
-                            });
+                            if (data[0] == "") {
+                              setState(() {
+                                resultController.text = "Error";
+                                operation = 0;
+                              });
+                            } else {
+                              setState(() {
+                                operation++;
+                                dataController.text += "*";
+                                operationText = "*";
+
+                                int plusCount = dataController.text
+                                        .split(operationText)
+                                        .length -
+                                    1;
+                                if (plusCount > 1) {
+                                  resultController.text =
+                                      calculate(data, operationText).toString();
+                                  operation = 0;
+                                  dataController.text = resultController.text;
+                                  data = [resultController.text, ""];
+                                  dataController.text += "*";
+                                  operationText = "*";
+                                  operation = 1;
+                                }
+                              });
+                            }
                           },
                           () {
-                            setState(() {
-                              operation++;
-                              dataController.text += "-";
-                              operationText = "-";
-                            });
+                            if (data[0] == "") {
+                              setState(() {
+                                resultController.text = "Error";
+                                operation = 0;
+                              });
+                            } else {
+                              setState(() {
+                                operation++;
+                                print(operation);
+                                dataController.text += "-";
+                                operationText = "-";
+
+                                int plusCount = dataController.text
+                                        .split(operationText)
+                                        .length -
+                                    1;
+                                if (plusCount > 1) {
+                                  resultController.text =
+                                      calculate(data, operationText).toString();
+                                  operation = 0;
+                                  dataController.text = resultController.text;
+                                  data = [resultController.text, ""];
+                                  dataController.text += "-";
+                                  operationText = "-";
+                                  operation = 1;
+                                }
+                              });
+                            }
                           },
                           () {
                             if (data[0] == "") {
@@ -323,6 +372,20 @@ class _MyAppState extends State<MyApp> {
                                 operation++;
                                 dataController.text += "+";
                                 operationText = "+";
+                                int plusCount = dataController.text
+                                        .split(operationText)
+                                        .length -
+                                    1;
+                                if (plusCount > 1) {
+                                  resultController.text =
+                                      calculate(data, operationText).toString();
+                                  operation = 0;
+                                  dataController.text = resultController.text;
+                                  data = [resultController.text, ""];
+                                  dataController.text += "+";
+                                  operationText = "+";
+                                  operation = 1;
+                                }
                               });
                             }
                           },
