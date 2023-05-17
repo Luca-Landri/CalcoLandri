@@ -39,18 +39,41 @@ class _MyAppState extends State<MyApp> {
   int calculate(List<String> data, String operationText) {
     int result = 0;
     if (data[1] != "") {
-      if (operationText == "+") {
-        result = int.parse(data[0]) + int.parse(data[1]);
-      } else if (operationText == "-") {
-        result = int.parse(data[0]) - int.parse(data[1]);
-      } else if (operationText == "*") {
-        result = int.parse(data[0]) * int.parse(data[1]);
-      }
-      if (operationText == "/") {
-        result = int.parse(data[0]) ~/ int.parse(data[1]);
+      int operand1 = int.parse(data[0]);
+      int operand2 = int.parse(data[1]);
+
+      switch (operationText) {
+        case "+":
+          result = operand1 + operand2;
+          break;
+        case "-":
+          result = operand1 - operand2;
+          break;
+        case "*":
+          result = operand1 * operand2;
+          break;
+        case "/":
+          result = operand1 ~/ operand2;
+          break;
       }
     }
     return result;
+  }
+
+  void updateDataWithOperation(String operationSymbol) {
+    operation++;
+    dataController.text += operationSymbol;
+    operationText = operationSymbol;
+
+    int count = dataController.text.split(operationText).length - 1;
+    if (count > 1) {
+      resultController.text = calculate(data, operationText).toString();
+      operation = 0;
+      data = [resultController.text, ""];
+      dataController.text = resultController.text + operationSymbol;
+      operationText = operationSymbol;
+      operation = 1;
+    }
   }
 
   List<Size> dimensionsArray = [
@@ -324,24 +347,7 @@ class _MyAppState extends State<MyApp> {
                               });
                             } else {
                               setState(() {
-                                operation++;
-                                dataController.text += "*";
-                                operationText = "*";
-
-                                int plusCount = dataController.text
-                                        .split(operationText)
-                                        .length -
-                                    1;
-                                if (plusCount > 1) {
-                                  resultController.text =
-                                      calculate(data, operationText).toString();
-                                  operation = 0;
-                                  dataController.text = resultController.text;
-                                  data = [resultController.text, ""];
-                                  dataController.text += "*";
-                                  operationText = "*";
-                                  operation = 1;
-                                }
+                                updateDataWithOperation("*");
                               });
                             }
                           },
@@ -353,24 +359,7 @@ class _MyAppState extends State<MyApp> {
                               });
                             } else {
                               setState(() {
-                                operation++;
-                                dataController.text += "-";
-                                operationText = "-";
-
-                                int plusCount = dataController.text
-                                        .split(operationText)
-                                        .length -
-                                    1;
-                                if (plusCount > 1) {
-                                  resultController.text =
-                                      calculate(data, operationText).toString();
-                                  operation = 0;
-                                  dataController.text = resultController.text;
-                                  data = [resultController.text, ""];
-                                  dataController.text += "-";
-                                  operationText = "-";
-                                  operation = 1;
-                                }
+                                updateDataWithOperation("-");
                               });
                             }
                           },
@@ -382,23 +371,7 @@ class _MyAppState extends State<MyApp> {
                               });
                             } else {
                               setState(() {
-                                operation++;
-                                dataController.text += "+";
-                                operationText = "+";
-                                int plusCount = dataController.text
-                                        .split(operationText)
-                                        .length -
-                                    1;
-                                if (plusCount > 1) {
-                                  resultController.text =
-                                      calculate(data, operationText).toString();
-                                  operation = 0;
-                                  dataController.text = resultController.text;
-                                  data = [resultController.text, ""];
-                                  dataController.text += "+";
-                                  operationText = "+";
-                                  operation = 1;
-                                }
+                                updateDataWithOperation("+");
                               });
                             }
                           },
