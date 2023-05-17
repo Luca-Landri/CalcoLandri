@@ -13,6 +13,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  List<Color> color1 = [
+    Color(0xFFCBDDCA),
+    Color(0xFF306474),
+    Color(0xFF306474),
+    Color(0xFF306474),
+    Color(0xFF306474),
+  ];
+
   // ignore: prefer_const_constructors
   final TextStyle style = TextStyle(
     color: Colors.white,
@@ -137,13 +145,7 @@ class _MyAppState extends State<MyApp> {
                     children: [
                       ButtonList(
                         // ignore: prefer_const_literals_to_create_immutables
-                        colorArray: [
-                          Color(0xFFCBDDCA),
-                          Color(0xFF306474),
-                          Color(0xFF306474),
-                          Color(0xFF306474),
-                          Color(0xFF306474),
-                        ],
+                        colorArray: color1,
                         // ignore: prefer_const_literals_to_create_immutables
                         dimensionsArray: dimensionsArray,
 
@@ -202,13 +204,7 @@ class _MyAppState extends State<MyApp> {
                       // ignore: prefer_const_constructors
                       ButtonList(
                         // ignore: prefer_const_literals_to_create_immutables
-                        colorArray: [
-                          Color(0xFFCBDDCA),
-                          Color(0xFF306474),
-                          Color(0xFF306474),
-                          Color(0xFF306474),
-                          Color(0xFF306474),
-                        ],
+                        colorArray: color1,
                         // ignore: prefer_const_literals_to_create_immutables
                         dimensionsArray: dimensionsArray,
 
@@ -358,7 +354,6 @@ class _MyAppState extends State<MyApp> {
                             } else {
                               setState(() {
                                 operation++;
-                                print(operation);
                                 dataController.text += "-";
                                 operationText = "-";
 
@@ -435,7 +430,6 @@ class _MyAppState extends State<MyApp> {
             ),
           ),
         ),
-        // add style to the column
       ),
     );
   }
