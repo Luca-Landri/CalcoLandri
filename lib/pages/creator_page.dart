@@ -1,7 +1,4 @@
-import 'package:flutter/src/animation/animation_controller.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:flutter/src/widgets/ticker_provider.dart';
+import 'package:flutter/material.dart';
 
 class CreatorPage extends StatefulWidget {
   const CreatorPage({super.key});
@@ -28,6 +25,30 @@ class _CreatorPageState extends State<CreatorPage>
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(
+        title: 'Creator Page',
+        home: Scaffold(
+          appBar: AppBar(
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              // ignore: prefer_const_literals_to_create_immutables
+              children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Icon(Icons.arrow_back_ios),
+                ),
+                Text('Creator Page',
+                    style:
+                        TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+              ],
+            ),
+          ),
+          body: Center(
+            child: Text('Creator Page'),
+          ),
+        ));
   }
 }
